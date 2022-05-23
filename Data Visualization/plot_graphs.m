@@ -3,6 +3,8 @@ clear;
 close all;
 
 
+% Suppress figure size warnings
+warning("off", "all");
 %% Sweeping Source Voltage
 filename = "JS129A_sweep_source.hdf5";
 sweepSource = hdf5plot(filename, 1, 10^-3, ...
@@ -138,6 +140,7 @@ print(h, "device_iv_curves", "-dpdf", "-r300");
 
 %% Sweeping Gate and Source Voltage Crygenic Temperatures
 filename = "JS127A_cryogenic.hdf5";
+% lambda function incorrect, needs verification
 lambda = @(X, Y, Z) Z;
 [cryogenicData, X, Y, Z] = hdf5surf(filename, 1, 1e9, 1, 1, ...
     "\bf JS127A Cryogenic Resistance", ...
