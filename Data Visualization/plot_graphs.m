@@ -34,6 +34,8 @@ set(h, "PaperPositionMode", "Auto", "PaperUnits", "Inches", ...
 print(h, "contact_resistance", "-dpdf", "-r300");
 
 
+hold on;
+plot(contactResistance(1, 2:end), Rc, "r.");
 title("\bf Zoomed Instrumentation Resistance with Respect to Voltage", ...
     "Interpreter", "LaTeX");
 ylim([-20 20]);
